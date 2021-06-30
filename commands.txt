@@ -1,0 +1,67 @@
+/* create and run all containers */
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+
+/* stop and remove all running containers */
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+
+/* build and run all running containers */
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up --build
+
+/* display the list of all running containers */
+docker ps
+
+/* display the list of all images */
+docker images
+
+/* display the list of all volumes */
+docker volume ls
+
+/* stop container */
+docker stop << First 4 Characters of Container ID >>
+
+/* remove container */
+docker rm << First 4 Characters of Container ID >>
+
+/* remove image */
+docker rmi << First 4 Characters of Image ID >>
+
+/* remove volume */
+docker volume rm << Volume Name >>
+
+/* stop all containers */
+docker stop $(docker ps -a -q)
+
+/* remove all containers */
+docker rm -f $(docker ps -a -q)
+
+/* remove all images */
+docker rmi $(docker images -a -q)
+
+/* remove all volumes */
+docker volume rm $(docker volume ls -q)
+
+/* remove all unused containers and images */
+docker system prune
+
+/* remove all unused volumnes */
+docker volume prune
+
+
+*********************
+
+/* build docker image */
+docker build -f "C:\Users\mafzal\source\repos\MicroservicesDevOps\Shopping\Shopping.Client\Dockerfile" --force-rm -t shoppingclient "C:\Users\mafzal\source\repos\MicroservicesDevOps\Shopping"com.microsoft.visual-studio.project-name=Shopping.Client" 
+
+/* create and run docker container with image*/
+docker run -d -p 8080:80 --name shoppingapp shoppingclient
+
+/* login to docker account */
+docker login
+
+/* tag existing image with repository name */
+docker tag << First 4 Characters of Image ID >> << Repository Name >>
+
+/* push image to registry */
+docker push << Repository Name >>:<< Tag Name >>
+
+*********************
