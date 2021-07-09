@@ -46,11 +46,8 @@ docker system prune
 /* remove all unused volumnes */
 docker volume prune
 
-
-*********************
-
 /* build docker image */
-docker build -f "C:\Users\mafzal\source\repos\MicroservicesDevOps\Shopping\Shopping.Client\Dockerfile" --force-rm -t shoppingclient "C:\Users\mafzal\source\repos\MicroservicesDevOps\Shopping"com.microsoft.visual-studio.project-name=Shopping.Client" 
+docker build -f << Docker File Path >> --force-rm -t shoppingclient "C:\Users\mafzal\source\repos\MicroservicesDevOps\Shopping"com.microsoft.visual-studio.project-name=Shopping.Client" 
 
 /* create and run docker container with image*/
 docker run -d -p 8080:80 --name shoppingapp shoppingclient
@@ -65,3 +62,11 @@ docker tag << First 4 Characters of Image ID >> << Repository Name >>
 docker push << Repository Name >>:<< Tag Name >>
 
 *********************
+
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/IdentityServer/IdentityServer4.Quickstart.UI/main/getmain.ps1'))
+<< OR >>
+dotnet new -i identityserver4.templates
+dotnet new is4ui
+
+*********************
+
