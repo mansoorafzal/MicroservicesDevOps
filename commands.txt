@@ -1,3 +1,12 @@
+/* create and run all containers */
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+
+/* stop and remove all running containers */
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+
+/* build and run all running containers */
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up --build
+
 /* display the list of all running containers */
 docker ps
 
