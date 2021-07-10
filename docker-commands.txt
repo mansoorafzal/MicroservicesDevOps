@@ -52,8 +52,6 @@ docker logs -f << Image Name >>
 /* starting interactive terminal */
 docker exec -it << Image Name >> << Command >>
 
-*********************
-
 /* build docker image */
 docker build -f << Docker File Path >> --force-rm -t shoppingclient "C:\Users\mafzal\source\repos\MicroservicesDevOps\Shopping"com.microsoft.visual-studio.project-name=Shopping.Client" 
 
@@ -77,24 +75,3 @@ docker run -d -p 27017:27017 --name shopping-mongo mongo
 
 /* mongodb interactive terminal */
 docker exec -it shopping-mongo /bin/bash
-
-/* mongodb commands */
-ls
-mongo
-show dbs OR show databases
-show collections
-use CatalogDb
-db.createCollection('Products')
-db.Products.insertMany([{'Name':'Asus Laptop', 'Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'Image1', 'Price':'54.93'}])
-db.Products.find({}).pretty()
-db.Products.remove({})
-
-*********************
-
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/IdentityServer/IdentityServer4.Quickstart.UI/main/getmain.ps1'))
-<< OR >>
-dotnet new -i identityserver4.templates
-dotnet new is4ui
-
-*********************
-

@@ -1,0 +1,47 @@
+/* list of all commands */
+kubectl OR kubectl help
+
+/* display cluster information */
+kubectl cluster-info
+
+/* display version */
+kubectl version
+
+/* display all resources */
+kubectl get all
+
+/* display all deployments */
+kubectl get deployments
+
+/* display all replicasets */
+kubectl get replicaset
+
+/* display all pods */
+kubectl get pod
+
+/* display all services */
+kubectl get services
+
+/* display all nodes */
+kubectl get nodes
+
+/* create deployment */
+kubectl create deployment nginx-deployment --image=nginx
+
+/* edit deployment */
+kubectl edit deployment nginx-deployment
+
+/* delete deployment */
+kubectl delete deployment << Deployment Name >>
+
+/* delete pod */
+kubectl delete pod << Pod Name >>
+
+/* delete service */
+kubectl delete service << Service Name >>
+
+/* create pod from image */
+kubectl run << Pod Name >> --image=<< Image Name >>
+
+/* port setup */
+kubectl port-forward << Pod Name >> << New Port >>:80

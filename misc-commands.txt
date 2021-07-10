@@ -1,0 +1,10 @@
+/* mongodb commands */
+ls
+mongo
+show dbs OR show databases
+show collections
+use CatalogDb
+db.createCollection('Products')
+db.Products.insertMany([{'Name':'Asus Laptop', 'Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'Image1', 'Price':'54.93'}])
+db.Products.find({}).pretty()
+db.Products.remove({})
