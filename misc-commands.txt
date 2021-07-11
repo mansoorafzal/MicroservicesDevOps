@@ -8,3 +8,10 @@ db.createCollection('Products')
 db.Products.insertMany([{'Name':'Asus Laptop', 'Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'Image1', 'Price':'54.93'}])
 db.Products.find({}).pretty()
 db.Products.remove({})
+
+/* mongodb credentials */
+username: admin
+Password: password
+
+kubectl apply -f .\mongo-secret.yaml
+kubectl get secret

@@ -26,10 +26,10 @@ kubectl get services
 kubectl get nodes
 
 /* create deployment */
-kubectl create deployment nginx-deployment --image=nginx
+kubectl create deployment << Deployment Name >> --image=<< Image Name >>
 
 /* edit deployment */
-kubectl edit deployment nginx-deployment
+kubectl edit deployment << Deployment Name >>
 
 /* delete deployment */
 kubectl delete deployment << Deployment Name >>
@@ -43,5 +43,32 @@ kubectl delete service << Service Name >>
 /* create pod from image */
 kubectl run << Pod Name >> --image=<< Image Name >>
 
+/* description of pod */
+kubectl describe pod << Pod Name >>
+
+/* description of service */
+kubectl describe service << Service Name >>
+
 /* port setup */
 kubectl port-forward << Pod Name >> << New Port >>:80
+
+/* check pod logs */
+kubectl logs << Pod Name >>
+
+/* open interactive terminal of a pod */
+kubectl exec << Pod Name >> -it sh
+
+/* commands for interactive terminal */
+ls -- to see the folder structure
+mongo -- to execute mongo commands
+
+/* declarative commands */
+kubectl create -f << File  Name >>
+kubectl apply -f << File  Name >>
+kubectl delete -f << File  Name >>
+kubectl get deployment << Deployment Name >> -o yaml
+
+/* dashboard configuration */
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.3.1/aio/deploy/recommended.yaml
+kubectl describe secret -n kube-system
+kubectl proxy
