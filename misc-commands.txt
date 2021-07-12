@@ -15,3 +15,9 @@ Password: password
 
 kubectl apply -f .\mongo-secret.yaml
 kubectl get secret
+
+kubectl apply -f .\mongo-configmap.yaml
+kubectl get cm
+
+kubectl apply -f .\shoppingapi-configmap.yaml
+kubectl get cm
