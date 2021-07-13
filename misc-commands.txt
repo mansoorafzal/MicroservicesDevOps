@@ -13,11 +13,27 @@ db.Products.remove({})
 username: admin
 Password: password
 
+/* local deployment */
 kubectl apply -f .\mongo-secret.yaml
 kubectl get secret
-
 kubectl apply -f .\mongo-configmap.yaml
-kubectl get cm
-
 kubectl apply -f .\shoppingapi-configmap.yaml
 kubectl get cm
+
+/* azure deployment */
+docker-compose -f ./docker-compose.yml -f ./docker-compose.override.yml up -d
+docker-compose -f ./docker-compose.yml -f ./docker-compose.override.yml down
+az --version
+az login
+az group create --name myResourceGroup --location uaenorth
+az acr create --resource-group myResourceGroup --name shoppingwebacr --sku Basic
+az acr update -n shoppingwebacr --admin-enabled true
+az acr login --name shoppingwebacr
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+docker tag shoppingapi:latest shoppingwebacr.azurecr.io/shoppingapi:v1
+docker tag shoppingclient:latest shoppingwebacr.azurecr.io/shoppingclient:v1
+docker push shoppingwebacr.azurecr.io/shoppingapi:v1
+docker push shoppingwebacr.azurecr.io/shoppingclient:v1
+az acr repository list --name shoppingwebacr --output table
+az acr repository show-tags --name shoppingwebacr --repository shoppingapi --output table
+az acr repository show-tags --name shoppingwebacr --repository shoppingclient --output table

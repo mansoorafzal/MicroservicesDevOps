@@ -73,3 +73,12 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.3.1/a
 kubectl describe secret -n kube-system
 kubectl proxy
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
+/* display all clusters */
+kubectl config get-contexts
+
+/* display current cluster */
+kubectl config current-context
+
+/* set current cluster */
+kubectl config use-context << Context Name >>
