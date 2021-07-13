@@ -45,3 +45,16 @@ kubectl create secret docker-registry acr-secret --docker-server=shoppingwebacr.
 kubectl get secret
 kubectl apply -f .\AKS\
 kubectl get service
+
+/* manual scale */
+kubectl scale --replicas=3 deployment.apps/shoppingclient-deployment
+kubectl get pod
+
+/* yaml scale */
+kubectl apply -f .\AKS\
+kubectl get pod
+
+/* auto scale */
+az aks show --resource-group myResourceGroup --name myAksCluster --query kubernetesVersion --output table
+kubectl apply -f .\AKS\
+kubectl get hpa
