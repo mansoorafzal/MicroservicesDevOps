@@ -25,6 +25,9 @@ docker rm << First 4 Characters of Container ID >>
 /* remove image */
 docker rmi << First 4 Characters of Image ID >>
 
+/* untag and remove image */
+docker rmi << First 4 Characters of Image ID >> -f
+
 /* remove volume */
 docker volume rm << Volume Name >>
 
