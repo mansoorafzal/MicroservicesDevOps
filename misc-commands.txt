@@ -37,3 +37,11 @@ docker push shoppingwebacr.azurecr.io/shoppingclient:v1
 az acr repository list --name shoppingwebacr --output table
 az acr repository show-tags --name shoppingwebacr --repository shoppingapi --output table
 az acr repository show-tags --name shoppingwebacr --repository shoppingclient --output table
+az aks create --resource-group myResourceGroup --name myAksCluster --node-count 1 --generate-ssh-keys --attach-acr shoppingwebacr
+az aks install-cli
+az aks get-credentials --resource-group myResourceGroup --name myAksCluster
+kubectl config get-contexts
+kubectl create secret docker-registry acr-secret --docker-server=shoppingwebacr.azurecr.io --docker-username=shoppingwebacr --docker-password=<<fromPortal>> --docker-email=<<portalEmail>>
+kubectl get secret
+kubectl apply -f .\AKS\
+kubectl get service
