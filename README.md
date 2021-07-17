@@ -1,5 +1,9 @@
-# MicroservicesDevOps
+# Microservices
 
-[![Build Status](https://dev.azure.com/mansoorafzal/Shopping/_apis/build/status/ShoppingClient-Pipeline?branchName=main)](https://dev.azure.com/mansoorafzal/Shopping/_build/latest?definitionId=5&branchName=main)
+Implementation is based on an online course on Microservices. It aims to show the Continuous Integration and Continuous Deployment of microservices with Docker Compose, Azure Container Registry, Kubernetes, Azure  Kubernetes Service and Azure DevOps.
 
-[![Build Status](https://dev.azure.com/mansoorafzal/Shopping/_apis/build/status/ShoppingApi-Pipeline?branchName=main)](https://dev.azure.com/mansoorafzal/Shopping/_build/latest?definitionId=4&branchName=main)
+It includes following packages:
+<br> Microsoft.VisualStudio.Azure.Containers.Tools.Targets
+<br> MongoDB.Driver
+<br> Newtonsoft.Json
+<br> Swashbuckle.AspNetCore
