@@ -4,15 +4,15 @@ trigger:
     - main
   paths:
     include:
-    - Shopping/Shopping.Api/*
-    - AKS/shoppingapi.yaml
+    - Shopping/Shopping.Client/*
+    - AKS/shoppingclient.yaml
 
 resources:
 - repo: self
 
 variables:
   dockerRegistryServiceConnection: '8698fa67-bedf-494c-9024-434e5b7a0fa7'
-  imageRepository: 'shoppingapi'
+  imageRepository: 'shoppingclient'
   containerRegistry: 'shoppingwebacr.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -68,7 +68,7 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/AKS/shoppingapi.yaml
+                $(Pipeline.Workspace)/AKS/shoppingclient.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
