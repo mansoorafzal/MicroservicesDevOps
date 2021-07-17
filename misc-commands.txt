@@ -58,3 +58,7 @@ kubectl get pod
 az aks show --resource-group myResourceGroup --name myAksCluster --query kubernetesVersion --output table
 kubectl apply -f .\AKS\
 kubectl get hpa
+
+/* delete azure resources */
+kubectl delete -f .\AKS\
+az group delete --name myResourceGroup --yes --no-wait
